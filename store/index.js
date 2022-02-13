@@ -23,23 +23,6 @@ const actions = {
       })
     }
   },
-  // async onAuthStateChangedAction(ctx, { authUser, claims }) {
-  //   if (!authUser) {
-  //     // remove state
-  //     ctx.commit(SET_USER, null)
-  //
-  //     //redirect from here
-  //     this.$router.push({
-  //       path: '/auth/signin',
-  //     })
-  //   } else {
-  //     const { uid, email } = authUser
-  //     ctx.commit(SET_USER, {
-  //       uid,
-  //       email,
-  //     })
-  //   }
-  // },
 }
 
 
