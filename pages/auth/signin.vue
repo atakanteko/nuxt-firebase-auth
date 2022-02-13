@@ -63,10 +63,27 @@ export default {
   },
   methods: {
     login() {
-
+      let that = this
+      this.$fire.auth.signInWithEmailAndPassword(this.auth.email, this.auth.password)
+        .catch(function (error){
+          that.snackbarText = error.message
+          that.snackbar = true
+        }).then((user) => {
+        //we are signed in
+        this.$router.push('/')
+      })
     },
     forgotPassword() {
-
+      let that = this
+      this.$fire.auth.sendPasswordResetEmail(this.auth.email)
+        .then(function (){
+          that.snackbarText = 'reset link sent to ' + that.auth.email
+          that.snackbar = true
+        })
+        .catch(function (error) {
+          that.snackbarText = error.message
+          that.snackbar = true
+        })
     }
   }
 }
